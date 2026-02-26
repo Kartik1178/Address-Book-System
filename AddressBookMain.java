@@ -20,7 +20,9 @@ public class AddressBookMain {
             System.out.println("5. Display Contacts");
             System.out.println("6. Search Person by City");
             System.out.println("7. Search Person by State");
-            System.out.println("8. Exit");
+            System.out.println("8. View Persons by City");
+            System.out.println("9. View Persons by State");
+            System.out.println("10. Exit");
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
             sc.nextLine(); // consume newline

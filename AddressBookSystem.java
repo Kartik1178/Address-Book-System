@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -40,7 +41,26 @@ public class AddressBookSystem {
         addressBookMap.values().stream().flatMap(book->book.getContactList().stream()).filter(contact->contact.getCity().equalsIgnoreCase(city)).forEach(contact->contact.displayContact());
     }
 public void searchPersonByState(String state){
-        addressBookMap.values().stream().flatMap(book->book.getContactList().stream()).filter(contact->contact.getState().equalsIgnoreCase(state)).forEach(contact->contact.displayContact);
+        addressBookMap.values().stream().flatMap(book->book.getContactList().stream()).filter(contact->contact.getState().equalsIgnoreCase(state)).forEach(contact->contact.displayContact());
 
 }
+    public void viewPersonsByCity() {
+        System.out.println("\n Persons Grouped by City");
+        Map<String, List<Contact>> cityMap=addressBookMap.values().stream().flatMap(book->book.getContactList().stream()).collect(java.util.stream.Collectors.groupingBy(Contact::getCity));
+cityMap.forEach((city,contacts)->{
+    System.out.println("\nCity: " + city);
+    contacts.forEach(Contact::displayContact);
+});
+    }
+    public void viewPersonsByState(){
+        System.out.println("\n Persons Grouped by State");
+        Map<String,List<Contact>> stateMap=addressBookMap.values().stream().flatMap(book->book.getContactList().stream()).collect(java.util.stream.Collectors.groupingBy(Contact::getState));
+    stateMap.forEach((state,contact)->{
+        System.out.println(state);
+        contact.forEach(Contact::displayContact);
+    });
+
+    }
+
+
 }
