@@ -114,4 +114,11 @@ public void sortByState() {
                 System.out.println(contact);
                 System.out.println("---------------------");
             });
-}}
+}
+public void sortByZip(){
+        contactList.stream().sorted((c1,c2)->c1.getZip().compareToIgnoreCase(c2.getZip())).forEach(e->  {System.out.println(e);});
+
+
+}
+
+}
