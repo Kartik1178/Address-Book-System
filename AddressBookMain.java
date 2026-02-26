@@ -18,7 +18,9 @@ public class AddressBookMain {
             System.out.println("3. Edit Contact");
             System.out.println("4. Delete Contact");
             System.out.println("5. Display Contacts");
-            System.out.println("6. Exit");
+            System.out.println("6. Search Person by City");
+            System.out.println("7. Search Person by State");
+            System.out.println("8. Exit");
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
             sc.nextLine(); // consume newline
@@ -53,6 +55,21 @@ public class AddressBookMain {
                     if (book != null) book.displayContacts();
                     break;
                 case 6:
+                    exit = true;
+                    System.out.println("Exiting Address Book System. Goodbye!");
+                    break;
+                case 7:
+                    System.out.print("Enter City: ");
+                    String city = sc.nextLine();
+                    system.searchPersonByCity(city);
+                    break;
+
+                case 8:
+                    System.out.print("Enter State: ");
+                    String state = sc.nextLine();
+                    system.searchPersonByState(state);
+                    break;
+                case 9:
                     exit = true;
                     System.out.println("Exiting Address Book System. Goodbye!");
                     break;

@@ -44,6 +44,17 @@ public class Contact {
     public String getFirstName() {
         return firstName;
     }
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
 
     // Setter methods to update contact details
     public void setAddress(String address) { this.address = address; }

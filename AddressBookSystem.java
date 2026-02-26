@@ -35,4 +35,12 @@ public class AddressBookSystem {
             return null;
         }
     }
+    public void searchPersonByCity(String city){
+        System.out.println("\nPersons in city: " + city);
+        addressBookMap.values().stream().flatMap(book->book.getContactList().stream()).filter(contact->contact.getCity().equalsIgnoreCase(city)).forEach(contact->contact.displayContact());
+    }
+public void searchPersonByState(String state){
+        addressBookMap.values().stream().flatMap(book->book.getContactList().stream()).filter(contact->contact.getState().equalsIgnoreCase(state)).forEach(contact->contact.displayContact);
+
+}
 }
