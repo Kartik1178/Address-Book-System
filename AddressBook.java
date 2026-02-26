@@ -33,10 +33,14 @@ public class AddressBook {
 
         // Creating Contact object and adding it to the list
         Contact person = new Contact(firstName, lastName, address, city, state, zip, phone, email);
-        contactList.add(person);
-        // Display confirmation and contact details
-        System.out.println("\nContact Added Successfully!\n");
-        person.displayContact();
+        boolean isDuplicate=contactList.stream().anyMatch(contact -> contact.equals(person));
+        if (isDuplicate) {
+            System.out.println("\nDuplicate contact found. Cannot add the same person again.");
+        } else {
+            contactList.add(person);
+            System.out.println("\nContact Added Successfully!\n");
+            person.displayContact();
+        }
     }
     // Method to edit an existing contact by searching with first name
     public void editContact(String name) {
