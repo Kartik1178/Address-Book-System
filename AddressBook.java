@@ -79,4 +79,18 @@ public class AddressBook {
         // Message if contact is not found
         System.out.println("Contact not found.");
     }
+    // Method to display all contacts in the address book
+    public void displayContacts() {
+        if (contactList.isEmpty()) {
+            System.out.println("\nNo contacts available.");
+            return;
+        }
+
+        System.out.println("\nContact List");
+        for (Contact contact : contactList) {
+            contact.displayContact();
+            System.out.println(" ");
+        }
+    }
+
 }
