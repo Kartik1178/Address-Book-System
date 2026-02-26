@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * AddressBookSystem manages multiple AddressBook instances.
@@ -60,6 +61,18 @@ cityMap.forEach((city,contacts)->{
         contact.forEach(Contact::displayContact);
     });
 
+    }
+    public void countByCity(){
+        Map<String,Long> cityCountMap=addressBookMap.values().stream().flatMap(book->book.getContactList().stream()).collect(Collectors.groupingBy(Contact::getCity,Collectors.counting()));
+        cityCountMap.forEach((city,count)->{
+            System.out.println("city "+city+" count: "+count);
+        });
+    }
+    public void countByState(){
+        Map<String,Long> stateCountMap=addressBookMap.values().stream().flatMap(book->book.getContactList().stream()).collect(Collectors.groupingBy(Contact::getState,Collectors.counting()));
+    stateCountMap.forEach((state,count)->{
+        System.out.println("City: " + state + " -> Count: " + count);
+    });
     }
 
 

@@ -22,7 +22,7 @@ public class AddressBookMain {
             System.out.println("7. Search Person by State");
             System.out.println("8. View Persons by City");
             System.out.println("9. View Persons by State");
-            System.out.println("10. Exit");
+
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
             sc.nextLine(); // consume newline
@@ -71,7 +71,15 @@ public class AddressBookMain {
                     String state = sc.nextLine();
                     system.searchPersonByState(state);
                     break;
-                case 9:
+                case 10:
+                    system.countByCity();
+                    break;
+
+                case 11:
+                    system.countByState();
+                    break;
+
+                case 12:
                     exit = true;
                     System.out.println("Exiting Address Book System. Goodbye!");
                     break;
