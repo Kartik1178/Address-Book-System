@@ -22,7 +22,8 @@ public class AddressBookMain {
             System.out.println("7. Search Person by State");
             System.out.println("8. View Persons by City");
             System.out.println("9. View Persons by State");
-
+            System.out.println("12. Sort Contacts by Name");
+            System.out.println("13. Exit");
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
             sc.nextLine(); // consume newline
@@ -80,6 +81,11 @@ public class AddressBookMain {
                     break;
 
                 case 12:
+                    AddressBook book = system.selectAddressBook();
+                    if (book != null) book.sortContactsByName();
+                    break;
+
+                case 13:
                     exit = true;
                     System.out.println("Exiting Address Book System. Goodbye!");
                     break;

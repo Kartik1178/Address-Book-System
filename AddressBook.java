@@ -99,5 +99,11 @@ public class AddressBook {
     public List<Contact> getContactList() {
         return contactList;
     }
+    public void sortContactsByName(){
+        contactList.stream().sorted((c1,c2)->c1.getFirstName().compareToIgnoreCase(c2.getFirstName())).forEach(contact->{
+            System.out.println(contact);
+        });
+    }
+
 
 }
