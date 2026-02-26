@@ -1,3 +1,10 @@
+/**
+ * Contact class represents a person entry in the Address Book.
+ * It stores personal details such as name, address, city, state,
+ * zip code, phone number, and email.
+ * This class also provides getter and setter methods to access
+ * and modify contact information.
+ */
 public class Contact {
     private String firstName;
     private String lastName;
@@ -8,6 +15,7 @@ public class Contact {
     private String phoneNumber;
     private String email;
 
+    // Constructor to initialize all contact details
     public Contact(String firstName, String lastName, String address,
                    String city, String state, String zip,
                    String phoneNumber, String email) {
@@ -21,6 +29,7 @@ public class Contact {
         this.email = email;
     }
 
+    // Method to display contact details on console
     public void displayContact() {
         System.out.println("Name: " + firstName + " " + lastName);
         System.out.println("Address: " + address);
@@ -30,4 +39,17 @@ public class Contact {
         System.out.println("Phone: " + phoneNumber);
         System.out.println("Email: " + email);
     }
+
+    // Getter method to fetch first name (used for searching contact)
+    public String getFirstName() {
+        return firstName;
+    }
+
+    // Setter methods to update contact details
+    public void setAddress(String address) { this.address = address; }
+    public void setCity(String city) { this.city = city; }
+    public void setState(String state) { this.state = state; }
+    public void setZip(String zip) { this.zip = zip; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+    public void setEmail(String email) { this.email = email; }
 }
