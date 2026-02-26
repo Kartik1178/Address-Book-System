@@ -1,48 +1,62 @@
 import java.util.Scanner;
 
 /**
- * AddressBookMain class provides a menu-driven console
- * to perform operations: Add, Edit, Delete, Display Contacts.
+ * AddressBookMain provides menu-driven interaction
+ * to manage multiple AddressBooks and their contacts.
  */
 public class AddressBookMain {
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book Program");
-        AddressBook addressBook = new AddressBook();
+
+        AddressBookSystem system = new AddressBookSystem();
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
             System.out.println("\nChoose an option:");
-            System.out.println("1. Add Contact");
-            System.out.println("2. Edit Contact");
-            System.out.println("3. Delete Contact");
-            System.out.println("4. Display Contacts");
-            System.out.println("5. Exit");
+            System.out.println("1. Add Address Book");
+            System.out.println("2. Add Contact");
+            System.out.println("3. Edit Contact");
+            System.out.println("4. Delete Contact");
+            System.out.println("5. Display Contacts");
+            System.out.println("6. Exit");
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
             sc.nextLine(); // consume newline
+            AddressBook book;
             switch (choice) {
                 case 1:
-                    addressBook.addContact();
+                    system.addAddressBook();
                     break;
+
                 case 2:
-                    System.out.print("Enter First Name to Edit: ");
-                    String editName = sc.nextLine();
-                    addressBook.editContact(editName);
+                    book = system.selectAddressBook();
+                    if (book != null) book.addContact();
                     break;
                 case 3:
-                    System.out.print("Enter First Name to Delete: ");
-                    String deleteName = sc.nextLine();
-                    addressBook.deleteContact(deleteName);
+                    book = system.selectAddressBook();
+                    if (book != null) {
+                        System.out.print("Enter First Name to Edit: ");
+                        String editName = sc.nextLine();
+                        book.editContact(editName);
+                    }
                     break;
                 case 4:
-                    addressBook.displayContacts();
+                    book = system.selectAddressBook();
+                    if (book != null) {
+                        System.out.print("Enter First Name to Delete: ");
+                        String deleteName = sc.nextLine();
+                        book.deleteContact(deleteName);
+                    }
                     break;
                 case 5:
-                    exit = true;
-                    System.out.println("Exiting Address Book. Goodbye!");
+                    book = system.selectAddressBook();
+                    if (book != null) book.displayContacts();
                     break;
-                default:
-                    System.out.println("Invalid choice. Try again.");
+                case 6:
+                    exit = true;
+                    System.out.println("Exiting Address Book System. Goodbye!");
+                    break;
+                default: System.out.println("Invalid choice. Try again.");
             }
         }
     }
