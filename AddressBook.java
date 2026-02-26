@@ -99,11 +99,19 @@ public class AddressBook {
     public List<Contact> getContactList() {
         return contactList;
     }
-    public void sortContactsByName(){
-        contactList.stream().sorted((c1,c2)->c1.getFirstName().compareToIgnoreCase(c2.getFirstName())).forEach(contact->{
+    public void sortContactsByName() {
+        contactList.stream().sorted((c1, c2) -> c1.getFirstName().compareToIgnoreCase(c2.getFirstName())).forEach(contact -> {
             System.out.println(contact);
         });
     }
 
-
-}
+// Method to sort contacts by State
+public void sortByState() {
+    contactList.stream()
+            .sorted((c1, c2) -> c1.getState()
+                    .compareToIgnoreCase(c2.getState()))
+            .forEach(contact -> {
+                System.out.println(contact);
+                System.out.println("---------------------");
+            });
+}}

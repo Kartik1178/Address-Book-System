@@ -51,7 +51,7 @@ public class Contact {
     public String getState() {
         return state;
     }
-
+    public String getZip() { return zip; }
     public String getLastName() {
         return lastName;
     }

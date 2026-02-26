@@ -23,7 +23,10 @@ public class AddressBookMain {
             System.out.println("8. View Persons by City");
             System.out.println("9. View Persons by State");
             System.out.println("12. Sort Contacts by Name");
-            System.out.println("13. Exit");
+            System.out.println("13. Sort Contacts by City");
+            System.out.println("14. Sort Contacts by State");
+            System.out.println("15. Sort Contacts by Zip");
+            System.out.println("16. Exit");
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
             sc.nextLine(); // consume newline
@@ -86,6 +89,21 @@ public class AddressBookMain {
                     break;
 
                 case 13:
+                    AddressBook bookCity = system.selectAddressBook();
+                    if (bookCity != null) bookCity.sortByCity();
+                    break;
+
+                case 14:
+                    AddressBook bookState = system.selectAddressBook();
+                    if (bookState != null) bookState.sortByState();
+                    break;
+
+                case 15:
+                    AddressBook bookZip = system.selectAddressBook();
+                    if (bookZip != null) bookZip.sortByZip();
+                    break;
+
+                case 16:
                     exit = true;
                     System.out.println("Exiting Address Book System. Goodbye!");
                     break;
